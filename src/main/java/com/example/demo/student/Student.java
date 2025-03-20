@@ -1,15 +1,35 @@
 package com.example.demo.student;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name ="student",schema = "spring_bot_learning")
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
     private LocalDate dob;
+
+    @Column(nullable = false)
     private String gender;
+
+    @Column(nullable = false)
     private String lastName;
+
+    @Column(nullable = false)
     private String firstName;
+
+    @Column(nullable = false, unique = true)
     private String admissionNumber;
+
+    @Column(nullable = false)
     private LocalDate admissionDate;
 
     // Constructors
